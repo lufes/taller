@@ -1,13 +1,14 @@
 package com.uco.taller.dispensadora.dominio;
 
 public class Snack {
+    private static final int CAPACITY = 6;
     private int amount;
-    private int code;
-    private String name;
-    private long price;
+    private final int code;
+    private final String name;
+    private final long price;
 
     protected Snack(int code, String name, long price) {
-        this.amount = 6;
+        this.amount = CAPACITY;
         this.code = code;
         this.name = name;
         this.price = price;

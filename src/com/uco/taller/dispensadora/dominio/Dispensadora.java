@@ -6,7 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Dispensadora {
-    private List<Snack> snacks;
+    private static final int TOTAL_SLOTS = 12;
+    private final List<Snack> snacks;
 
     public Dispensadora() {
         this.snacks = new ArrayList<>();
@@ -17,7 +18,7 @@ public class Dispensadora {
         String msg = "Se añadió correctamente el snack: " + name;
         boolean wasAdded = false;
 
-        if (currentSnack == null && this.snacks.size() < 12) {
+        if (currentSnack == null && this.snacks.size() < TOTAL_SLOTS) {
             Snack snack = new Snack(code, name, price);
             this.snacks.add(snack);
             wasAdded = true;

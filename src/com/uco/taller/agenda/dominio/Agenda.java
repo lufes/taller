@@ -11,18 +11,6 @@ public class Agenda {
         this.contactos = new ArrayList<>();
     }
 
-    public List<Contacto> buscarPorApellido(String apellidoABuscar) {
-        List<Contacto> contactosPorApellido = new ArrayList<>();
-
-        for (Contacto contacto : this.contactos) {
-            if (contacto.getApellido().equalsIgnoreCase(apellidoABuscar)) {
-                contactosPorApellido.add(contacto);
-            }
-        }
-
-        return contactosPorApellido;
-    }
-
     public Contacto buscarPorCelular(long celularABuscar) {
         return this.contactos.stream()
                 .filter(contacto -> contacto.getCelular() == celularABuscar)
@@ -31,7 +19,7 @@ public class Agenda {
 
     public List<Contacto> buscarPorNombre(String nombreABuscar) {
         return this.contactos.stream()
-                .filter(contact -> contact.getNombre().equalsIgnoreCase(nombreABuscar))
+                .filter(contact -> contact.getNombre().equalsIgnoreCase(nombreABuscar) || contact.getApellido().equalsIgnoreCase(nombreABuscar))
                 .toList();
     }
 
